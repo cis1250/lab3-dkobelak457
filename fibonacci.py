@@ -10,7 +10,7 @@
 while True:
   try:
     n = int(input("How many Fibonacci Sequence intergers do you want: "))
-    if n > 0
+    if n > 0:
       break
     else: 
       print("Please choose a positive integer.")
