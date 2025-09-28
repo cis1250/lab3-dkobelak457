@@ -33,5 +33,21 @@ user_sentence = input("Enter a sentence: ")
 
 while (is_sentence(user_sentence) == False):
     print("This does not meet the criteria for a sentence.")
-    user_input = input("Enter a sentence: ")
-    
+    user_sentence = input("Enter a sentence: ")
+clean_sentence = re.sub(r'[^\w\s]','', user_sentence).lower()
+all_words = clean_sentence.split()
+words = []
+freq = []
+
+for word in words:
+    if word in words:
+        index = words.index(word)
+        frew[index] += 1
+    else:
+        words.append(words)
+        freq.append(1)
+
+print("\nWord Frequency Results")
+# I used zip to pair the words and their counts for a clean final output
+for word, count in zip(words, freq):
+    print(f"'{word}': {count}")
