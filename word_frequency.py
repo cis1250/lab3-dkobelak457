@@ -29,25 +29,41 @@ def is_sentence(text):
 
     return True
 
+# 1. Prompt the user and start the validation loop
 user_sentence = input("Enter a sentence: ")
 
-while (is_sentence(user_sentence) == False):
-    print("This does not meet the criteria for a sentence.")
-    user_sentence = input("Enter a sentence: ")
-clean_sentence = re.sub(r'[^\w\s]','', user_sentence).lower()
-all_words = clean_sentence.split()
-words = []
-freq = []
+while is_sentence(user_sentence) == False:
+    print("This does not meet the criteria for a sentence (Must start with a capital letter and end with .!?).")
+    user_sentence = input("Enter a valid sentence: ")
 
-for word in words:
-    if word in words:
-        index = words.index(word)
-        frew[index] += 1
-    else:
-        words.append(words)
-        freq.append(1)
+lower_sentence = user_sentence.lower()
 
-print("\nWord Frequency Results")
-# I used zip to pair the words and their counts for a clean final output
-for word, count in zip(words, freq):
-    print(f"'{word}': {count}")
+
+cleaned_sentence = re.sub(r'[^\w\s]', ' ', lower_sentence)
+
+
+all_words = cleaned_sentence.split()
+
+
+unique_words = []
+frequencies = []
+
+for word in all_words:
+    if word: # Ensures only process non empty strings
+        if word in unique_words:
+            # If the word is already in the unique list, increment its count 
+            index = unique_words.index(word)
+            frequencies[index] += 1
+        else:
+            # If it's a new word, add it to the unique list and set its initial frequency to 1
+            unique_words.append(word)
+            frequencies.append(1)
+
+
+print("\n--- Word Frequency Results ---")
+# Only print results if words were actually found
+if unique_words:
+    for word, count in zip(unique_words, frequencies):
+        print(f"'{word}': {count}")
+else:
+    print("No words were found. ") 
