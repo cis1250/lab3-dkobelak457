@@ -6,28 +6,26 @@
 # Validate that the input is a positive integer.
 # Use a for loop to print the Fibonacci sequence up to that many terms.
 
-
+#While loop takes the user input and checks if it is a valid integer
 while True:
-  try:
-    n = int(input("How many Fibonacci Sequence intergers do you want: "))
-    if n > 0:
-      break
-    else: 
-      print("Please choose a positive integer.")
-# try and value error used to check if the input is a integer 
-  except ValueError:
-    print("Please enter a positive integer. ")
-
-
-a, b = 0, 1
-
-result = []
-#values are held in the result string and printed later
-for _ in range(n):
-    result.append(a)
-    a, b = b, a + b
-
-#all lines are converted to a string and printed out in a single line in the terminal
-print(" ".join(map(str, result)))
-    
-    
+    n = input("Enter how many Fibonacci Sequence integers do you want: ")
+    #checks if the input is only digits
+    if n.isdigit():
+        n = int(n)
+    #if n is less then 0 then it breaks the loop
+        if n > 0:
+            break
+        else:
+            print("Choose a positive integer ")
+    else:
+        print("Invalid, enter a whole number ")
+a = 0
+b = 1
+#for loop takes a then calculates the next fib num using the t as a temp variable
+#saves the old value of a, updates a and b to move the sequence forwards
+for i in range(n):
+    print(a, end=" ")
+    t = a
+    a = b
+    b = t + b
+print()
