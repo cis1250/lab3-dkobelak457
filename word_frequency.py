@@ -35,13 +35,19 @@ while is_sentence(user_sentence) == False:
     print("This does not meet the criteria for a sentence (Must start with a capital letter and end with .!?).")
     user_sentence = input("Enter a valid sentence: ")
 
+#converts all the words to lowercase
 lower_sentence = user_sentence.lower()
+#re.sub is used to clean the sentences, ex replace capitals ect
 cleaned_sentence = re.sub(r'[^\w\s]', ' ', lower_sentence)
+#split is used to split the sentences up into indivudual strings
 all_words = cleaned_sentence.split()
+
+#Empty strings for words and frequency 
 unique_words = []
 frequencies = []
 
 #for loop to get words and add them to a list 
+# word is temporary, used to see if words are inside of the list
 for word in all_words:
     if word: # Ensures only process non empty strings
         if word in unique_words:
@@ -58,7 +64,8 @@ print("\n Word Frequency Results ")
 # Only print results if words were actually found
 if unique_words:
 # zip both unique words and frequencies for easy clean access 
-    for word, count in zip(unique_words, frequencies):
+    
+    for word, count in unique_words, frequencies:
         print(f"'{word}': {count}")
 else:
     print("No words found ") 
