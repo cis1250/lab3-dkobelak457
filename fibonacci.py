@@ -14,13 +14,20 @@ while True:
       break
     else: 
       print("Please choose a positive integer.")
+# try and value error used to check if the input is a integer 
   except ValueError:
     print("Please enter a positive integer. ")
+
+
 a, b = 0, 1
+
 result = []
+#values are held in the result string and printed later
 for _ in range(n):
     result.append(a)
     a, b = b, a + b
+
+#all lines are converted to a string and printed out in a single line in the terminal
 print(" ".join(map(str, result)))
     
     
