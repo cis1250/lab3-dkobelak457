@@ -8,18 +8,6 @@
 
 #While loop takes the user input and checks if it is a valid integer
 
-def userInput():
-        n = input("Enter how many Fibonacci Sequence integers do you want: ")
-    #checks if the input is only digits
-    if n.isdigit():
-        n = int(n)
-    #if n is less then 0 then it breaks the loop
-        if n > 0:
-            break
-        else:
-            print("Choose a positive integer ")
-    else:
-        print("Invalid, enter a whole number ")
 def fibonacci():
     a = 0
     b = 1
@@ -33,5 +21,15 @@ def fibonacci():
     print()
     
 while True:
-    userInput()
+    n = input("Enter how many Fibonacci Sequence integers do you want: ")
+    #checks if the input is only digits
+    if n.isdigit():
+        n = int(n)
+    #if n is less then 0 then it breaks the loop
+        if n > 0:
+            break
+        else:
+            print("Choose a positive integer ")
+    else:
+        print("Invalid, enter a whole number ")
 fibonacci()
